@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-loadable",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A higher order component for loading components with dynamic imports.",
   "main": "lib/index.js",
   "scripts": {
@@ -8,6 +8,10 @@
     "build": "cross-env BABEL_ENV=production babel --plugins transform-runtime src -d lib",
     "prepare": "npm run lint && npm run build",
     "lint": "NODE_ENV=production eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaywcjlove/react-dynamic-loadable.git"
   },
   "peerDependencies": {
     "react": "*"
