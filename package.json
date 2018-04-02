@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env BABEL_ENV=production babel --plugins transform-runtime src -d lib",
+    "watch": "cross-env BABEL_ENV=production babel -w --plugins transform-runtime src -d lib",
     "prepare": "npm run lint && npm run build",
     "lint": "NODE_ENV=production eslint src"
   },
