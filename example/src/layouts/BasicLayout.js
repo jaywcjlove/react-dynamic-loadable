@@ -15,7 +15,20 @@ class BasicLayout extends PureComponent {
         if (path === '/') {
           RouteComponents.push(<Route exact key={idx + 1} path="/" render={() => <Redirect to="/home" />} />);
         } else {
-          RouteComponents.push(<Route exact key={idx + 1} path={path} component={routerData[path].component} />);
+          RouteComponents.push(
+            <Route
+              exact
+              key={idx + 1}
+              path={path}
+              render={(props) => {
+                const ChildComp = routerData[path].component;
+                // 可以给子组件传一些参数如： isNavShow=true
+                return (
+                  <ChildComp {...props} isNavShow />
+                );
+              }}
+            />
+          );
         }
       }
     });
