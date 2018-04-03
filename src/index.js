@@ -50,8 +50,9 @@ export default function dynamic(config) {
   return asyncComponent({
     resolve: config.resolve || function () {
       return new Promise((resolve) => {
-        const models = typeof resolveModels === 'function' ? resolveModels() : [];
+        let models = typeof resolveModels === 'function' ? resolveModels() : [];
         const component = resolveComponent();
+        models = !models ? [] : models;
         Promise.all([...models, component]).then((ret) => {
           if (!models || !models.length) {
             return resolve(ret[0]);
