@@ -12,7 +12,7 @@ npm install react-dynamic-loadable --save
 
 ## Simple Example
 
-> [Simple Example code](./example-simple)
+> [Simple Example code](./example/simple)
 
 ```js
 import Loadable from 'react-dynamic-loadable';
@@ -32,9 +32,9 @@ export default class App extends React.Component {
 
 ## Example
 
-Use [Redux](https://github.com/reactjs/redux) (**[@rematch](https://github.com/rematch/rematch)**), [React Router](https://github.com/ReactTraining/react-router) [Example](./example).
+Use [Redux](https://github.com/reactjs/redux) (**[@rematch](https://github.com/rematch/rematch)**), [React Router](https://github.com/ReactTraining/react-router) [Example](./example/router-redux-rematch).
 
-> [Example code](./example)
+> [Example code](./example/router-redux-rematch)
 
 ```js
 import React from 'react';
