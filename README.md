@@ -10,7 +10,9 @@ A higher order component for loading components with dynamic imports.
 npm install react-dynamic-loadable --save
 ```
 
-## Example
+## Simple Example
+
+> [Simple Example code](./example-simple)
 
 ```js
 import Loadable from 'react-dynamic-loadable';
