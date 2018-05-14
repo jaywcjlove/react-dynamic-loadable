@@ -1,6 +1,6 @@
 import React from 'react';
 import { model } from '@rematch/core';
-import dynamic from '../../';
+import dynamic from 'react-dynamic-loadable';
 
 // wrapper of dynamic
 const dynamicWrapper = (models, component) => dynamic({
