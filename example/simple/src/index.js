@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Loadable from '../../';
+import Loadable from 'react-dynamic-loadable';
 
 
 const LoadableComponent = Loadable({
