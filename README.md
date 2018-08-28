@@ -44,7 +44,7 @@ import dynamic from 'react-dynamic-loadable';
 const dynamicWrapper = (models, component) => dynamic({
   models: () => models.map((m) => {
     return import(`./models/${m}.js`).then((md) => {
-      model({ name: m, ...md[m] });
+      model({ name: m, ...md[m] || md.default });
     });
   }),
   component,

@@ -1,6 +1,6 @@
 // import request from '../utils/request';
 
-export const global = {
+export default {
   state: {
     test: '测试全局State',
   }, // initial state

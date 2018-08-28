@@ -7,7 +7,9 @@ import * as models from './models/global';
 import './styles/index.less';
 
 const store = init({
-  models,
+  models: {
+    global: models.default || models,
+  },
 });
 
 ReactDOM.render(

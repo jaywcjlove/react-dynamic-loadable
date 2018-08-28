@@ -3,7 +3,7 @@ import request from '../utils/request';
 const getToken = () => localStorage.getItem('token');
 const getUsername = () => localStorage.getItem('username');
 
-export const user = {
+export default {
   state: {
     token: getToken(),
     username: getUsername(),
