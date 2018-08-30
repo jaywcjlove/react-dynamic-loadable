@@ -1,1 +1,16 @@
 example
+node_modules
+package-lock.json
+npm-debug.log*
+.babelrc
+.eslintrc.js
+.DS_Store
+.cache
+.vscode
+
+*.bak
+*.tem
+*.temp
+#.swp
+*.*~
+~*.*
