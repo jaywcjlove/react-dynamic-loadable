@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import path from 'path';
 import autoprefixer from 'autoprefixer';
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -17,6 +18,11 @@ export default {
   output: {
     publicPath: '/',
     filename: '[name].js',
+  },
+  resolve: {
+    alias: {
+      'react-dynamic-loadable': path.resolve(__dirname, '../../../../lib/'),
+    },
   },
   module: {
     strictExportPresence: true,
