@@ -66,3 +66,25 @@ export const getRouterData = () => {
   return conf;
 };
 ```
+
+## Server-Side Rendering
+
+```js
+// webpack.config.js
+import { DynamicLoadablePlugin } from 'react-dynamic-loadable/DynamicLoadablePlugin';
+ 
+export default {
+  plugins: [
+    new DynamicLoadablePlugin({
+      filename: './dist/loadable-assets.json',
+    }),
+  ],
+};
+```
+
+
+```js
+import { getBundles } from 'react-dynamic-loadable/DynamicLoadablePlugin';
+ 
+let bundles = getBundles(stats, modules);
+```
