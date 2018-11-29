@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-loadable",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A higher order component for loading components with dynamic imports.",
   "main": "lib/index.js",
   "scripts": {
