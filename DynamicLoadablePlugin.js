@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 
-function buildManifest(compiler, compilation) {
+function buildManifest(compiler, compilation, options) {
   const context = compiler.options.context;
   const manifest = {};
 
@@ -21,10 +21,22 @@ function buildManifest(compiler, compilation) {
           manifest[currentModule.rawRequest] = [];
         }
 
-        manifest[currentModule.rawRequest].push({ id, name, file, publicPath });
+        // Deduplication
+        const isUnique = manifest[currentModule.rawRequest].filter(item => item.id === id && item.name === name && item.file === file && item.publicPath === publicPath);
+        if (isUnique.length === 0) {
+          manifest[currentModule.rawRequest].push({ id, name, file, publicPath });
+        }
       });
     });
   });
+  // exclude some data
+  if (options.exclude) {
+    Object.keys(manifest).forEach((key) => {
+      if (options.exclude.test(key)) {
+        delete manifest[key];
+      }
+    });
+  }
 
   return manifest;
 }
@@ -32,11 +44,13 @@ function buildManifest(compiler, compilation) {
 class DynamicLoadablePlugin {
   constructor(opts = {}) {
     this.filename = opts.filename;
+    this.exclude = opts.exclude; // It is a regular expression
+    this.options = opts;
   }
 
   apply(compiler) {
     compiler.plugin('emit', (compilation, callback) => {
-      const manifest = buildManifest(compiler, compilation);
+      const manifest = buildManifest(compiler, compilation, this.options);
       const json = JSON.stringify(manifest, null, 2);
       const outputDirectory = path.dirname(this.filename);
       try {
