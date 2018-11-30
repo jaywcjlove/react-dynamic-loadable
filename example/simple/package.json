@@ -1,7 +1,8 @@
 {
-  "name": "example2",
+  "name": "simple",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple example.",
+  "private": true,
   "scripts": {
     "start": "babel-node scripts/start.js",
     "build": "babel-node scripts/build.js"
@@ -49,6 +50,6 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-dynamic-loadable": "^1.0.8"
+    "react-dynamic-loadable": "file:../../"
   }
 }

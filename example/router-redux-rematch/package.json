@@ -1,7 +1,7 @@
 {
   "name": "npmp-web",
   "version": "1.0.0",
-  "description": "企业私有仓库npmp的web界面。",
+  "description": "Use Redux(@rematch), React Router example.",
   "private": true,
   "scripts": {
     "start": "babel-node scripts/start.js",
@@ -23,7 +23,7 @@
     "@rematch/core": "^0.5.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-dynamic-loadable": "^1.x.x",
+    "react-dynamic-loadable": "file:../../",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2"
   },
