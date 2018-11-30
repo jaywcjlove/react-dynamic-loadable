@@ -1,12 +1,12 @@
 {
   "name": "react-dynamic-loadable",
-  "version": "1.0.11",
+  "version": "1.1.0",
   "description": "A higher order component for loading components with dynamic imports.",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env BABEL_ENV=production babel src -d lib",
-    "watch": "cross-env BABEL_ENV=production babel -w src -d lib",
+    "build": "cross-env BABEL_ENV=production babel src -d lib --verbose",
+    "watch": "cross-env BABEL_ENV=production babel -w src -d lib --verbose",
     "prepare": "npm run lint && npm run build",
     "lint": "NODE_ENV=production eslint src"
   },
