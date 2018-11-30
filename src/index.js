@@ -1,71 +1,81 @@
 import React from 'react';
 
-let defaultLoadingComponent = () => null;
+let defaultLoadingComponent = null;
 
-function asyncComponent(config) {
-  const { resolve } = config;
-  return class Lazyloads extends React.Component {
-    constructor(props) {
-      super(props);
-      this.LoadingComponent = config.LoadingComponent || defaultLoadingComponent;
-      this.state = {
-        AsyncComponent: null,
-      };
-      this.load(props);
-    }
-    componentDidMount() {
-      this.mounted = true;
-    }
-    componentWillUnmount() {
-      this.mounted = false;
-    }
-    componentWillReceiveProps(nextProps) {
-      if (nextProps.load !== this.props.load) {
-        this.load(nextProps);
-      }
-    }
-    load() {
-      resolve().then((mod) => {
-        const AsyncComponent = mod.default || mod;
-        if (this.mounted) {
-          this.setState({ AsyncComponent });
-        } else {
-          this.state.AsyncComponent = AsyncComponent; // eslint-disable-line
-        }
+/**
+ * Returns a new React component, ready to be instantiated.
+ * Note the closure here protecting Component, and providing a unique
+ * instance of Component to the static implementation of `load`.
+ */
+export default function dynamicLoadable({
+  component,
+  LoadingComponent,
+  models: resolveModels,
+}) {
+  // keep Component in a closure to avoid doing this stuff more than once
+  let Component = null;
+
+  return class AsyncRouteComponent extends React.Component {
+    /**
+     * Static so that you can call load against an uninstantiated version of
+     * this component. This should only be called one time outside of the
+     * normal render path.
+     */
+    static async load() {
+      let models = typeof resolveModels === 'function' ? resolveModels() : [];
+      models = !models ? [] : models;
+      return Promise.all([...models]).then(() => {
+        return component().then((ResolvedComponent) => {
+          Component = ResolvedComponent.default || ResolvedComponent;
+        });
       });
     }
-    render() {
-      const { AsyncComponent } = this.state;
-      const { LoadingComponent } = this;
-      if (this.state.AsyncComponent) {
-        return <AsyncComponent {...this.props} />;
+
+    static getInitialProps(ctx) {
+      // Need to call the wrapped components getInitialProps if it exists
+      if (Component !== null) {
+        return Component.getInitialProps ? Component.getInitialProps(ctx) : Promise.resolve(null);
       }
-      return <LoadingComponent {...this.props} />;
+    }
+
+    constructor(props) {
+      super(props);
+      this.updateState = this.updateState.bind(this);
+      this.state = {
+        Component,
+      };
+    }
+
+    componentWillMount() {
+      AsyncRouteComponent.load().then(this.updateState);
+    }
+
+    updateState() {
+      // Only update state if we don't already have a reference to the
+      // component, this prevent unnecessary renders.
+      if (this.state.Component !== Component) {
+        this.setState({
+          Component,
+        });
+      }
+    }
+
+    render() {
+      const { Component: ComponentFromState } = this.state;
+      const Loading = LoadingComponent || defaultLoadingComponent;
+      if (ComponentFromState) {
+        return <ComponentFromState {...this.props} />;
+      }
+
+      if (Loading) {
+        return <Loading {...this.props} />;
+      }
+
+      return null;
     }
   };
 }
 
-export default function dynamic(config) {
-  const { component: resolveComponent, models: resolveModels } = config;
-  return asyncComponent({
-    resolve: config.resolve || function () {
-      return new Promise((resolve) => {
-        let models = typeof resolveModels === 'function' ? resolveModels() : [];
-        const component = resolveComponent();
-        models = !models ? [] : models;
-        Promise.all([...models, component]).then((ret) => {
-          if (!models || !models.length) {
-            return resolve(ret[0]);
-          }
-          const len = models.length;
-          return resolve(ret[len]);
-        });
-      });
-    },
-    ...config,
-  });
-}
-
-dynamic.setDefaultLoadingComponent = (LoadingComponent) => {
+dynamicLoadable.setDefaultLoadingComponent = (LoadingComponent) => {
   defaultLoadingComponent = LoadingComponent;
 };
