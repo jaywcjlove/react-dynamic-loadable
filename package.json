@@ -2,11 +2,11 @@
   "name": "react-dynamic-loadable",
   "version": "1.1.2",
   "description": "A higher order component for loading components with dynamic imports.",
-  "main": "lib/index.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env BABEL_ENV=production babel src -d lib --verbose",
-    "watch": "cross-env BABEL_ENV=production babel -w src -d lib --verbose",
+    "watch": "tsbb watch --target react",
+    "build": "tsbb build --target react",
     "prepare": "npm run lint && npm run build",
     "lint": "NODE_ENV=production eslint src"
   },
@@ -27,25 +27,17 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-async-to-generator": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^9.0.0",
     "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0"
+    "eslint-plugin-react": "^7.7.0",
+    "tsbb": "^1.1.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
-    "react": "^16.2.0"
+    "@babel/runtime": "^7.5.5",
+    "react": "^16.9.0"
   }
 }
