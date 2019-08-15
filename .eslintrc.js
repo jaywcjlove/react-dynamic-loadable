@@ -33,6 +33,8 @@ const eslintrc = {
     "react/sort-comp": 0,
     "react/prop-types": 0,
     "react/jsx-first-prop-new-line": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/destructuring-assignment": 0,
     "react/require-extension": 0,
     "react/jsx-filename-extension": [
       1,
