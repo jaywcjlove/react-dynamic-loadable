@@ -45,8 +45,8 @@ export default function dynamicLoadable({
         Component,
       };
     }
-
-    componentWillMount() {
+    // eslint-disable-next-line
+    UNSAFE_componentWillMount() {
       AsyncRouteComponent.load().then(this.updateState);
     }
 
