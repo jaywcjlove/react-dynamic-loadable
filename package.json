@@ -24,6 +24,10 @@
     "code-splitting",
     "loadable"
   ],
+  "files": [
+    "lib",
+    "DynamicLoadablePlugin.js"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
