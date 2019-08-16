@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import path from 'path';
 import autoprefixer from 'autoprefixer';
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -18,11 +17,6 @@ export default {
   output: {
     publicPath: '/',
     filename: '[name].js',
-  },
-  resolve: {
-    alias: {
-      'react-dynamic-loadable': path.resolve(__dirname, '../../../../lib/'),
-    },
   },
   module: {
     strictExportPresence: true,
@@ -62,7 +56,7 @@ export default {
                 loader: require.resolve('css-loader'),
                 options: {
                   modules: true,
-                  localIdentName: '[name]-[hash:base64:5]',
+                  // localIdentName: '[name]-[hash:base64:5]',
                   importLoaders: 1,
                 },
               },
@@ -76,12 +70,12 @@ export default {
                     postcssFlexbugsFixes(),
                     // require('postcss-flexbugs-fixes'),
                     autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
+                      // overrideBrowserslist: [
+                      //   '>1%',
+                      //   'last 4 versions',
+                      //   'Firefox ESR',
+                      //   'not ie < 9', // React doesn't support IE8 anyway
+                      // ],
                       flexbox: 'no-2009',
                     }),
                   ],
@@ -96,7 +90,6 @@ export default {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.

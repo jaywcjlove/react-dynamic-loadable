@@ -1,16 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { init } from '@rematch/core';
 import { Provider } from 'react-redux';
 import RouterControl from './RouterControl';
-import * as models from './models/global';
+import { store } from './store';
 import './styles/index.less';
-
-const store = init({
-  models: {
-    global: models.default || models,
-  },
-});
 
 ReactDOM.render(
   <Provider store={store}>

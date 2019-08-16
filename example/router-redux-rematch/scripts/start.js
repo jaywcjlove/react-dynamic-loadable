@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import WebpackDevServer from 'webpack-dev-server';
-import apiMocker from 'webpack-api-mocker';
+import apiMocker from 'mocker-api';
 import load from 'loading-cli';
 import 'colors-cli/toxic';
 import conf from './conf/webpack.config.dev';

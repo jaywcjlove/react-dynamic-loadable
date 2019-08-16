@@ -1,12 +1,14 @@
 import React from 'react';
-import { model } from '@rematch/core';
 import dynamic from 'react-dynamic-loadable';
+import { store } from './store';
 
 // wrapper of dynamic
 const dynamicWrapper = (models, component) => dynamic({
   models: () => models.map((m) => {
     return import(`./models/${m}.js`).then((md) => {
-      model({ name: m, ...md[m] || md.default });
+      const mdd = md[m] || md.default;
+      mdd.name = m;
+      store.model(mdd);
     });
   }),
   component,
