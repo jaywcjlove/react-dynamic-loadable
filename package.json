@@ -14,9 +14,6 @@
     "type": "git",
     "url": "https://github.com/jaywcjlove/react-dynamic-loadable.git"
   },
-  "peerDependencies": {
-    "react": "*"
-  },
   "keywords": [
     "react",
     "loading",
@@ -28,20 +25,23 @@
     "lib",
     "DynamicLoadablePlugin.js"
   ],
-  "author": "",
+  "author": "Kenny Wong <wowohoo@qq.com> (https://github.com/jaywcjlove)",
   "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
-    "cross-env": "^5.2.0",
-    "eslint": "^6.1.0",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^5.2.1",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "tsbb": "^1.1.3"
+    "eslint-plugin-react": "^7.18.3",
+    "tsbb": "^1.5.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.5.5",
-    "react": "^16.9.0"
+    "@babel/runtime": "^7.8.4",
+    "react": "^16.12.0"
   }
 }
