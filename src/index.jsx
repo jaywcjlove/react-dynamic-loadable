@@ -14,8 +14,15 @@ export default function dynamicLoadable({
 }) {
   // keep Component in a closure to avoid doing this stuff more than once
   let Component = null;
+  class AsyncRouteComponent extends React.Component {
+    static async getInitialProps(ctx) {
+      // Need to call the wrapped components getInitialProps if it exists
+      if (Component !== null) {
+        return Component.getInitialProps ? Component.getInitialProps(ctx) : Promise.resolve(null);
+      }
+      return Promise.resolve(null);
+    }
 
-  return class AsyncRouteComponent extends React.Component {
     /**
      * Static so that you can call load against an uninstantiated version of
      * this component. This should only be called one time outside of the
@@ -28,13 +35,6 @@ export default function dynamicLoadable({
       const Com = await component();
       if (Com) {
         Component = Com.default || Com;
-      }
-    }
-
-    static getInitialProps(ctx) {
-      // Need to call the wrapped components getInitialProps if it exists
-      if (Component !== null) {
-        return Component.getInitialProps ? Component.getInitialProps(ctx) : Promise.resolve(null);
       }
     }
 
@@ -58,19 +58,21 @@ export default function dynamicLoadable({
     }
 
     render() {
+      const { ...other } = this.props;
       const { Component: ComponentFromState } = this.state;
       const Loading = LoadingComponent || defaultLoadingComponent;
       if (ComponentFromState) {
-        return <ComponentFromState {...this.props} />;
+        return <ComponentFromState {...other} />;
       }
 
       if (Loading) {
-        return <Loading {...this.props} />;
+        return <Loading {...other} />;
       }
 
       return null;
     }
-  };
+  }
+  return AsyncRouteComponent;
 }
 
 dynamicLoadable.setDefaultLoadingComponent = (LoadingComponent) => {

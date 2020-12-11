@@ -7,9 +7,6 @@ const fs = require('fs');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
-console.log('>>>', path.resolve(__dirname, '../public'))
-console.log('>>>222', resolveApp('public'))
-
 module.exports = {
   // Source files
   src: resolveApp('src'),

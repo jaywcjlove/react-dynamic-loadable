@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-loadable",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A higher order component for loading components with dynamic imports.",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -8,7 +8,7 @@
     "watch": "tsbb watch --target react",
     "build": "tsbb build --target react",
     "prepare": "npm run lint && npm run build",
-    "lint": "NODE_ENV=production eslint src"
+    "lint": "NODE_ENV=production eslint src --ext jsx"
   },
   "repository": {
     "type": "git",
@@ -33,11 +33,12 @@
   "devDependencies": {
     "babel-eslint": "10.0.3",
     "cross-env": "7.0.2",
-    "eslint": "6.8.0",
-    "eslint-config-airbnb": "18.0.1",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.18.3",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "react": "16.12.0",
     "tsbb": "1.7.8"
   },
