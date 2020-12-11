@@ -3,13 +3,13 @@ const path = require('path');
 const url = require('url');
 
 function buildManifest(compiler, compilation, options) {
-  const context = compiler.options.context;
+  const { context } = compiler.options;
   const manifest = {};
 
   compilation.chunks.forEach((chunk) => {
     chunk.files.forEach((file) => {
       chunk.forEachModule((module) => {
-        const id = module.id;
+        const { id } = module;
         const name = typeof module.libIdent === 'function' ? module.libIdent({ context }) : null;
         const publicPath = url.resolve(compilation.outputOptions.publicPath || '', file);
 
@@ -22,9 +22,15 @@ function buildManifest(compiler, compilation, options) {
         }
 
         // Deduplication
-        const isUnique = manifest[currentModule.rawRequest].filter(item => item.id === id && item.name === name && item.file === file && item.publicPath === publicPath);
+        const isUnique = manifest[currentModule.rawRequest]
+          .filter((item) => item.id === id
+            && item.name === name
+            && item.file === file
+            && item.publicPath === publicPath);
         if (isUnique.length === 0) {
-          manifest[currentModule.rawRequest].push({ id, name, file, publicPath });
+          manifest[currentModule.rawRequest].push({
+            id, name, file, publicPath,
+          });
         }
       });
     });
@@ -67,9 +73,7 @@ class DynamicLoadablePlugin {
 }
 
 function getBundles(manifest, moduleIds) {
-  return moduleIds.reduce((bundles, moduleId) => {
-    return bundles.concat(manifest[moduleId]);
-  }, []);
+  return moduleIds.reduce((bundles, moduleId) => bundles.concat(manifest[moduleId]), []);
 }
 
 exports.DynamicLoadablePlugin = DynamicLoadablePlugin;
