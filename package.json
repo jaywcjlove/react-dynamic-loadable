@@ -38,10 +38,10 @@
     "eslint-plugin-import": "2.20.1",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.18.3",
-    "tsbb": "1.5.2"
+    "react": "16.12.0",
+    "tsbb": "1.7.8"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.4",
-    "react": "^16.12.0"
+    "@babel/runtime": "^7.12.5"
   }
 }
