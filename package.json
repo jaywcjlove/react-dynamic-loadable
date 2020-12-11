@@ -28,7 +28,7 @@
   "author": "Kenny Wong <wowohoo@qq.com> (https://github.com/jaywcjlove)",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.9.0"
+    "react": ">=16.9.0"
   },
   "devDependencies": {
     "babel-eslint": "10.0.3",
