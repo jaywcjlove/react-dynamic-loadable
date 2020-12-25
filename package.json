@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-loadable",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A higher order component for loading components with dynamic imports.",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -19,10 +19,13 @@
     "react",
     "loading",
     "imports",
+    "dynamic",
+    "dynamic-loadable",
     "code-splitting",
     "loadable"
   ],
   "files": [
+    "types",
     "lib",
     "DynamicLoadablePlugin.js"
   ],
