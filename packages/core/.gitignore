@@ -1,13 +1,10 @@
-src
-example
 node_modules
-package-lock.json
+lib
+dist
 npm-debug.log*
-.babelrc
-.eslintrc.js
+package-lock.json
 .DS_Store
 .cache
-.vscode
 
 *.bak
 *.tem

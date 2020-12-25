@@ -1,0 +1,43 @@
+{
+  "name": "react-dynamic-loadable",
+  "version": "2.0.4",
+  "description": "A higher order component for loading components with dynamic imports.",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "watch": "tsbb watch --target react",
+    "build": "tsbb build --target react",
+    "prepare": "npm run lint && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaywcjlove/react-dynamic-loadable.git"
+  },
+  "keywords": [
+    "react",
+    "loading",
+    "imports",
+    "dynamic",
+    "dynamic-loadable",
+    "code-splitting",
+    "loadable"
+  ],
+  "files": [
+    "types",
+    "lib",
+    "src",
+    "DynamicLoadablePlugin.js"
+  ],
+  "author": "Kenny Wong <wowohoo@qq.com> (https://github.com/jaywcjlove)",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.9.0"
+  },
+  "devDependencies": {
+    "react": "16.12.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.5"
+  }
+}

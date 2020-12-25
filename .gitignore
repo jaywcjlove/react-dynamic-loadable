@@ -5,7 +5,6 @@ npm-debug.log*
 package-lock.json
 .DS_Store
 .cache
-.rdoc-dist
 .vscode
 
 *.bak

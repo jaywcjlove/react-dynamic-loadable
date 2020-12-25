@@ -1,52 +1,32 @@
 {
   "name": "react-dynamic-loadable",
-  "version": "2.0.4",
+  "private": true,
   "description": "A higher order component for loading components with dynamic imports.",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
-  "typings": "types/index.d.ts",
+  "workspaces": [
+    "packages/*",
+    "example/*"
+  ],
   "scripts": {
-    "watch": "tsbb watch --target react",
-    "build": "tsbb build --target react",
+    "watch": "yarn workspace react-dynamic-loadable tsbb watch --target react",
+    "build": "yarn workspace react-dynamic-loadable tsbb build --target react",
     "prepare": "npm run lint && npm run build",
-    "lint": "NODE_ENV=production eslint src --ext jsx"
+    "lint": "cross-env NODE_ENV=production eslint packages/core/src --ext jsx"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jaywcjlove/react-dynamic-loadable.git"
   },
-  "keywords": [
-    "react",
-    "loading",
-    "imports",
-    "dynamic",
-    "dynamic-loadable",
-    "code-splitting",
-    "loadable"
-  ],
-  "files": [
-    "types",
-    "lib",
-    "DynamicLoadablePlugin.js"
-  ],
+  "jest": {},
   "author": "Kenny Wong <wowohoo@qq.com> (https://github.com/jaywcjlove)",
   "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.9.0"
-  },
   "devDependencies": {
-    "babel-eslint": "10.0.3",
-    "cross-env": "7.0.2",
+    "cross-env": "7.0.3",
     "eslint": "^7.15.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "react": "16.12.0",
     "tsbb": "1.7.8"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.12.5"
   }
 }

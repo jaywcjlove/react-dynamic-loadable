@@ -1,7 +1,7 @@
 type Options = {
-  models: Promise<any>[];
-  component: Promise<any>[];
-  LoadingComponent: JSX.Element;
+  models: () => Promise<any>[];
+  component: () => Promise<any>;
+  LoadingComponent: () => JSX.Element;
 }
 
 declare function dynamicLoadable(options: Options): React.ReactNode;
