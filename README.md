@@ -1,6 +1,7 @@
-
 react-dynamic-loadable
 ---
+
+[![Build and Lint](https://github.com/jaywcjlove/react-dynamic-loadable/workflows/Build%20and%20Lint/badge.svg)](https://github.com/jaywcjlove/react-dynamic-loadable/actions)
 
 A higher order component for loading components with dynamic imports.
 
