@@ -43,7 +43,7 @@
     "autoprefixer": "9.6.1",
     "babel-eslint": "8.2.6",
     "babel-loader": "8.2.2",
-    "colors-cli": "1.0.23",
+    "colors-cli": "1.0.27",
     "css-loader": "3.2.0",
     "eslint": "4.19.1",
     "eslint-config-airbnb": "16.1.0",

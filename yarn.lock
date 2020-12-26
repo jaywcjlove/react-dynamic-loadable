@@ -3201,11 +3201,6 @@ colorette@^1.2.1:
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.2.1.tgz#4d0b921325c14faf92633086a536db6e89564b1b"
   integrity sha512-puCDz0CzydiSYOrnXpz/PKd69zRrribezjtE9yd4zvytoRc8+RY/KJPvtPFKZS3E3wP6neGyMe0vOTlHO5L3Pw==
 
-colors-cli@1.0.23:
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/colors-cli/-/colors-cli-1.0.23.tgz#e1addb2faaa945c91ebc55ca92f174b6efb6fa49"
-  integrity sha512-5hcizaqwqMyz9Rjdup8t/On+/24YX8uXbvGvd18wwrUKgF2q/+aHr701Iu0EqROHmDgJhmIC32MACj/5m/l2vQ==
-
 colors-cli@1.0.27, colors-cli@^1.0.14:
   version "1.0.27"
   resolved "https://registry.yarnpkg.com/colors-cli/-/colors-cli-1.0.27.tgz#1a33f6cfc013cdb55e50bac0bff1a8f5f0866cf8"
