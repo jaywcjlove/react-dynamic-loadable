@@ -3467,7 +3467,7 @@ colors-cli@1.0.23:
   resolved "https://registry.yarnpkg.com/colors-cli/-/colors-cli-1.0.23.tgz#e1addb2faaa945c91ebc55ca92f174b6efb6fa49"
   integrity sha512-5hcizaqwqMyz9Rjdup8t/On+/24YX8uXbvGvd18wwrUKgF2q/+aHr701Iu0EqROHmDgJhmIC32MACj/5m/l2vQ==
 
-colors-cli@1.0.27, colors-cli@^1.0.14:
+colors-cli@1.0.27, colors-cli@^1.0.26:
   version "1.0.27"
   resolved "https://registry.yarnpkg.com/colors-cli/-/colors-cli-1.0.27.tgz#1a33f6cfc013cdb55e50bac0bff1a8f5f0866cf8"
   integrity sha512-oyHDobdhzZDRHzVqOX+0owvXkS6recku25PUutP89BggJ3HikYTBpa7HZOoiAwhKFgHdyfJ+YNJyqxM4kBcEUg==
@@ -6981,12 +6981,12 @@ loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-loading-cli@1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/loading-cli/-/loading-cli-1.0.8.tgz#5d5b942f0385bcebb1410b5accc58d4d66082c62"
-  integrity sha512-h2PgbEPRQzDj9Ox8voggvXfRkxIQGMGRPwCAGPijRjXB0UyiIBAdYjoJG0on/uCl0gYLeJJQ9bgOiKO1v+++vA==
+loading-cli@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/loading-cli/-/loading-cli-1.1.0.tgz#3457edaa3290439ad0061755174363a8091d56bc"
+  integrity sha512-r6Kj0Y3d3isT4vvJ0tFlND1CcLkpatWmlgQs/PEfnSofJSHZwAbsqexnpQEDj4nlxSXEqFWh/Wu2iQXAAZRPNQ==
   dependencies:
-    colors-cli "^1.0.14"
+    colors-cli "^1.0.26"
 
 local-ip-url@1.0.3:
   version "1.0.3"
