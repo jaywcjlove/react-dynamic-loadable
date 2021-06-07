@@ -63,7 +63,7 @@
     "transform-runtime": "0.0.0",
     "url-loader": "1.1.2",
     "webpack": "4.39.2",
-    "webpack-cli": "3.3.6",
+    "webpack-cli": "4.7.2",
     "webpack-dev-server": "3.8.0"
   }
 }
