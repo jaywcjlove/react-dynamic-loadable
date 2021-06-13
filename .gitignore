@@ -1,6 +1,7 @@
 node_modules
 lib
 dist
+build
 npm-debug.log*
 package-lock.json
 .DS_Store
