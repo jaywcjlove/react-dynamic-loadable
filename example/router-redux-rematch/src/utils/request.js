@@ -22,11 +22,6 @@ export default function request(url, options) {
 
   return fetch(url, newOptions)
     .then(parseJSON)
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      // console.log('请求错误: ', err);
-      return err;
-    });
+    .then((data) => data)
+    .catch((err) => err);
 }

@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Switch, withRouter, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Switch, withRouter, Route,
+} from 'react-router-dom';
 import { getRouterData } from './Router';
 
 const RoutersContainer = withRouter(({ history, location }) => {
@@ -12,11 +14,15 @@ const RoutersContainer = withRouter(({ history, location }) => {
   };
   return (
     <Switch>
-      <Route path="/" render={props => <BasicLayout {...props} {...resetProps} />} />
+      <Route
+        path="/"
+        render={(props) => (
+          <BasicLayout {...props} {...resetProps} />
+        )}
+      />
     </Switch>
   );
 });
-
 
 export default () => (
   <BrowserRouter>

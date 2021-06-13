@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import {
+  Switch, Route, Redirect, Link,
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 import styles from './BasicLayout.less';
 
@@ -7,18 +9,26 @@ class BasicLayout extends PureComponent {
   logout() {
     this.props.logout();
   }
+
   render() {
     const { routerData, token, username } = this.props;
     const RouteComponents = [];
     Object.keys(routerData).forEach((path, idx) => {
       if (!/^(\/docs\/)/.test(path) && path !== '/docs') {
         if (path === '/') {
-          RouteComponents.push(<Route exact key={idx + 1} path="/" render={() => <Redirect to="/home" />} />);
+          RouteComponents.push(
+            <Route
+              exact
+              key={`${idx + 1}`}
+              path="/"
+              render={() => <Redirect to="/home" />}
+            />,
+          );
         } else {
           RouteComponents.push(
             <Route
               exact
-              key={idx + 1}
+              key={`${idx + 1}`}
               path={path}
               render={(props) => {
                 const ChildComp = routerData[path].component;
@@ -27,7 +37,7 @@ class BasicLayout extends PureComponent {
                   <ChildComp {...props} isNavShow />
                 );
               }}
-            />
+            />,
           );
         }
       }
@@ -38,7 +48,12 @@ class BasicLayout extends PureComponent {
           <div className={styles.inner}>
             <Link to="/"> 首页 </Link>
             <div className={styles.right}>
-              {token ? <Link to="/"> 你好！{username || '-'} </Link> : <Link to="/login"> 登录 </Link>}
+              {token ? (
+                <Link to="/">
+                  你好！
+                  {username || '-'}
+                </Link>
+              ) : <Link to="/login"> 登录 </Link>}
               {token && <Link to="/login"> 退出登录 </Link>}
             </div>
           </div>
@@ -60,4 +75,8 @@ const mapState = ({ global, user }) => ({
   username: user.username,
 });
 
-export default connect(mapState)(BasicLayout);
+const mapDispatch = ({ user }) => ({
+  logout: user.logout,
+});
+
+export default connect(mapState, mapDispatch)(BasicLayout);

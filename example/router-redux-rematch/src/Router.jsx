@@ -8,9 +8,16 @@ const dynamicWrapper = (models, component) => dynamic({
     return import(`./models/${m}.js`).then((md) => {
       const mdd = md[m] || md.default;
       mdd.name = m;
-      store.model(mdd);
+      store.addModel(mdd);
     });
   }),
+  // models: () => models.map((m) => {
+  //   return import(`./models/${m}.js`).then((md) => {
+  //     const mdd = md[m] || md.default;
+  //     mdd.name = m;
+  //     store.model(mdd);
+  //   });
+  // }),
   component,
   LoadingComponent: () => <span>loading....</span>,
 });

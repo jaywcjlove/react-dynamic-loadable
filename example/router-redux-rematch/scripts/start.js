@@ -12,9 +12,22 @@ loading.color = 'green';
 
 // https://webpack.js.org/api/compiler-hooks/#aftercompile
 // 编译完成之后打印日志
-compiler.hooks.done.tap('done', () => {
+compiler.hooks.done.tap('done', (err) => {
   loading.stop();
+  if (err.hasErrors) {
+    // console.log('err:', Object.keys(err));
+    // console.log('err:', err);
+    if (err.compilation.errors.length > 0) {
+      // eslint-disable-next-line no-console
+      console.log('Errors::', err.compilation.errors.join('\n'));
+    }
+    if (err.compilation.warnings.length > 0) {
+      // eslint-disable-next-line no-console
+      console.log('warnings::', err.compilation.warnings.join('\n'));
+    }
+  }
   if (!global.rebuild) {
+    // eslint-disable-next-line no-console
     console.log(`Dev Server Listening at ${'http://localhost:19421/'.green}`);
     global.rebuild = true;
   }
@@ -33,6 +46,7 @@ new WebpackDevServer(compiler, {
   quiet: true,
 }).listen(19421, 'localhost', (err) => {
   if (err) {
-    return console.log(err);
+    // eslint-disable-next-line no-console
+    console.log(err);
   }
 });

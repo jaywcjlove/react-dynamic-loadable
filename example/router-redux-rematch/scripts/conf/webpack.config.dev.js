@@ -1,43 +1,20 @@
 import webpack from 'webpack';
-import autoprefixer from 'autoprefixer';
-import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import FriendlyErrorsWebpackPlugin from '@nuxtjs/friendly-errors-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
+// import FriendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin';
 import paths from './path';
-import pkg from '../../package.json';
+// import pkg from '../../package.json';
 
 export default {
   mode: 'development',
-  entry: {
-    app: [
-      paths.appIndexJs,
-    ],
-    vendors: Object.keys(pkg.dependencies || {}),
-  },
+  entry: paths.appIndexJs,
+  target: 'web',
   output: {
     publicPath: '/',
     filename: '[name].js',
   },
   module: {
-    strictExportPresence: true,
     rules: [
-      {
-        test: /\.(js|jsx|mjs)$/,
-        enforce: 'pre',
-        use: [
-          {
-            // 首先运行linter。
-            // 在Babel处理js之前做这一点很重要。
-            options: {
-              // formatter: eslintFormatter,
-              eslintPath: require.resolve('eslint'),
-              configFile: require.resolve('../../.eslintrc.js'),
-            },
-            loader: require.resolve('eslint-loader'),
-          },
-        ],
-        include: paths.appSrc,
-      },
       {
         oneOf: [
           {
@@ -60,27 +37,6 @@ export default {
                   importLoaders: 1,
                 },
               },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  // Necessary for external CSS imports to work
-                  // https://github.com/facebookincubator/create-react-app/issues/2677
-                  ident: 'postcss',
-                  plugins: () => [
-                    postcssFlexbugsFixes(),
-                    // require('postcss-flexbugs-fixes'),
-                    autoprefixer({
-                      // overrideBrowserslist: [
-                      //   '>1%',
-                      //   'last 4 versions',
-                      //   'Firefox ESR',
-                      //   'not ie < 9', // React doesn't support IE8 anyway
-                      // ],
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                },
-              },
               require.resolve('less-loader'),
             ],
           },
@@ -88,13 +44,8 @@ export default {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
+            exclude: /node_modules/,
             loader: require.resolve('babel-loader'),
-            options: {
-              // This is a feature of `babel-loader` for webpack (not Babel itself).
-              // It enables caching results in ./node_modules/.cache/babel-loader/
-              // directory for faster rebuilds.
-              cacheDirectory: true,
-            },
           },
           // “file-loader”确保这些资源由WebpackDevServer服务。
           // 当您导入资源时，您将获得（虚拟）文件名。
@@ -113,6 +64,9 @@ export default {
       },
     ],
   },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       favicon: paths.appFavicon,
@@ -120,6 +74,9 @@ export default {
       template: paths.appHtml,
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new FriendlyErrorsWebpackPlugin(),
+    new ESLintPlugin({
+      eslintPath: require.resolve('eslint'),
+      overrideConfigFile: require.resolve('../../.eslintrc.js'),
+    }),
   ],
 };

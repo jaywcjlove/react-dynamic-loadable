@@ -7,6 +7,7 @@
     "example/*"
   ],
   "scripts": {
+    "start": "yarn workspace react-dynamic-loadable start",
     "watch": "yarn workspace react-dynamic-loadable tsbb watch --target react",
     "build": "yarn workspace react-dynamic-loadable tsbb build --target react",
     "prepare": "npm run lint && npm run build",
@@ -21,12 +22,12 @@
   "license": "MIT",
   "devDependencies": {
     "cross-env": "7.0.3",
-    "eslint": "7.16.0",
+    "eslint": "7.28.0",
     "eslint-config-airbnb": "18.2.1",
-    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-import": "2.23.4",
     "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "tsbb": "1.7.8"
+    "tsbb": "2.2.0"
   }
 }

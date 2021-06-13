@@ -1,13 +1,20 @@
 module.exports = {
   extends: [
-    'plugin:react/recommended',
+    'eslint:recommended',
     'airbnb',
+    'airbnb/hooks',
   ],
   plugins: [
     'react',
+    'jsx-a11y',
   ],
   rules: {
-    "react/jsx-props-no-spreading": 0,
-    "react/destructuring-assignment": 0
+    'import/no-extraneous-dependencies': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/destructuring-assignment': 0,
+  },
+  parser: 'babel-eslint',
+  env: {
+    browser: true,
   },
 };

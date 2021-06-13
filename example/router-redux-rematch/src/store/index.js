@@ -1,4 +1,3 @@
-
 import { init } from '@rematch/core';
 import global from '../models/global';
 

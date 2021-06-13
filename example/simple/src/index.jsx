@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Loadable from 'react-dynamic-loadable';
 
-
 const LoadableComponent = Loadable({
   component: () => import('./my-component'),
   LoadingComponent: () => <div>loading</div>,
@@ -11,7 +10,9 @@ const LoadableComponent = Loadable({
 ReactDOM.render(
   <div>
     test
-    <LoadableComponent />
+    <React.StrictMode>
+      <LoadableComponent />
+    </React.StrictMode>
   </div>,
   document.getElementById('root'),
 );

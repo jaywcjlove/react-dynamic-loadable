@@ -13,6 +13,7 @@
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-async-to-generator",
+    "@babel/plugin-transform-modules-commonjs",
     ["@babel/plugin-proposal-object-rest-spread", { "loose": true, "useBuiltIns": true }],
     [
       "@babel/plugin-transform-runtime", {
