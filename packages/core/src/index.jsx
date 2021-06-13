@@ -41,9 +41,10 @@ export default function dynamicLoadable({
     constructor(props) {
       super(props);
       this.updateState = this.updateState.bind(this);
-      this.state = {
-        Component,
-      };
+      this.state = { Component };
+    }
+
+    componentDidMount() {
       AsyncRouteComponent.load().then(this.updateState);
     }
 
