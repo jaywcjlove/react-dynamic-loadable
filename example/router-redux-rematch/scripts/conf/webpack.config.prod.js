@@ -1,7 +1,4 @@
-import autoprefixer from 'autoprefixer';
-import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
 import ESLintPlugin from 'eslint-webpack-plugin';
-// import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import paths from './path';
 
@@ -34,31 +31,9 @@ export default {
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  modules: true,
-                  localIdentName: '[name]-[hash:base64:5]',
-                  importLoaders: 1,
-                },
-              },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  postcssOptions: {
-                    // Necessary for external CSS imports to work
-                    // https://github.com/facebookincubator/create-react-app/issues/2677
-                    ident: 'postcss',
-                    plugins: () => [
-                      postcssFlexbugsFixes(),
-                      // require('postcss-flexbugs-fixes'),
-                      autoprefixer({
-                        // overrideBrowserslist: [
-                        //   '>1%',
-                        //   'last 4 versions',
-                        //   'Firefox ESR',
-                        //   'not ie < 9', // React doesn't support IE8 anyway
-                        // ],
-                        flexbox: 'no-2009',
-                      }),
-                    ],
+                  modules: {
+                    localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                    // importLoaders: 0,
                   },
                 },
               },
