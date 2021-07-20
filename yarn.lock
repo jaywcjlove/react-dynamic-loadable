@@ -8683,10 +8683,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
-kkt@6.10.3:
-  version "6.10.3"
-  resolved "https://registry.yarnpkg.com/kkt/-/kkt-6.10.3.tgz#c33430aaa8cabcc82e0c51923bc3b51097d0bce1"
-  integrity sha512-DlfG9XyG8ujcmy9K8FxMnYoBkMq+ab4cc2n5oC1S0WalJ9YaUYpzGMFT2nPCVJo9+rInrcao8sFeUitw7YJXAg==
+kkt@6.11.0:
+  version "6.11.0"
+  resolved "https://registry.yarnpkg.com/kkt/-/kkt-6.11.0.tgz#d857c89fa4b1faec3e01e472bbbf7859b4bcb9e7"
+  integrity sha512-LeClg75kyf6HSpZUMutbgYsCk9L0I5xgeyv3NaJHdhhVO1MJx2K5qkuvrelVnIoiXiOjn3sihwR3hhS3FXt5/A==
   dependencies:
     "@babel/register" "7.14.5"
     "@testing-library/jest-dom" "^5.11.9"
@@ -8706,7 +8706,7 @@ kkt@6.10.3:
     sass "1.34.1"
     semver "7.3.5"
     ts-node "10.0.0"
-    typescript "4.3.2"
+    typescript "4.3.5"
     webpack "4.44.2"
 
 kleur@^3.0.3:
@@ -13004,6 +13004,11 @@ typescript@4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.2.tgz#399ab18aac45802d6f2498de5054fcbbe716a805"
   integrity sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw==
+
+typescript@4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
+  integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"

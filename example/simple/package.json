@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "kkt": "6.10.3"
+    "kkt": "6.11.0"
   },
   "dependencies": {
     "react": "17.0.2",
