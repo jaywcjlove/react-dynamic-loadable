@@ -44,7 +44,7 @@
     "@babel/eslint-plugin": "7.14.5",
     "@soda/friendly-errors-webpack-plugin": "1.8.0",
     "babel-loader": "8.2.2",
-    "colors-cli": "1.0.27",
+    "colors-cli": "1.0.33",
     "css-loader": "6.2.0",
     "eslint": "7.31.0",
     "eslint-config-airbnb": "18.2.1",
